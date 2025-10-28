@@ -890,7 +890,7 @@ label[for="location"]:after {
     </style>
     <script>
 
-	// Care Card Form Application with Email Submission and QR Code
+	// Care Card Form Application with Email Submission
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Care Card Form loaded successfully!');
     
@@ -969,6 +969,30 @@ function setupEventListeners() {
     setupModalEvents();
     
     // Form submission
+	<script type="text/javascript">
+  (function() {
+    emailjs.init({
+      publicKey: "8NFn9DlEmxbvJdtV7",
+    });
+  })();
+
+  window.onload = function() {
+    document.getElementsByClassName('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Impede o envio padrão do formulário
+
+      emailjs.sendForm('service_ops8p5q', 'template_zbhopog', this)
+        .then(function() {
+          alert('E-mail enviado com sucesso!');
+          // Limpar o formulário ou exibir uma mensagem de sucesso aqui
+        }, function(error) {
+          alert('Falha ao enviar o e-mail: ' + JSON.stringify(error));
+        });
+    });
+  }
+  </script>
+	
+	
+	// Form submission
     const form = document.getElementById('careForm');
     if (form) {
         form.addEventListener('submit', function(e) {
@@ -1643,7 +1667,7 @@ setTimeout(() => {
                 </div>
             </div>
 
-            <form id="careForm">
+            <form id="careForm" class="contact-form" >
                 <!-- PARTE A - Geral -->
                 <div class="section">
                     <h2>PARTE A - Geral</h2>
@@ -1892,6 +1916,7 @@ setTimeout(() => {
 </body>
 
 </html>
+
 
 
 
