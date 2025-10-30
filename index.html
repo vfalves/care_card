@@ -1381,7 +1381,7 @@ function confirmEmailSubmission() {
     // Prepare email data
     const formData = collectFormData();
     const emailBody = formatEmailBody(formData);
-    const subject = `Cartão CARE - ${formData.cardNumber} - ${formData.observerName}`;
+    const subject = `CARTAO CARE - ${formData.cardNumber} - ${formData.observerName}`;
     
     // Create mailto link
     const mailtoLink = `mailto:hseqcoordinator.cdg@modec.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
@@ -1729,4 +1729,5 @@ setTimeout(() => {
 </body>
 
 </html>
+
 
